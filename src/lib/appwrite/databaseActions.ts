@@ -11,7 +11,7 @@ export async function addLogin(website:string, password: string):Promise<CardPro
   }
   try {
     const response = await databases.createDocument(
-      import.meta.env.VITE_APPWRITE_DATABASES_ID,
+      '673f358f0020553b4468',
       import.meta.env.VITE_APPWRITE_CREDENTIALS_ID,
       ID.unique(),
       newCard
