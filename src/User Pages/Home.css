@@ -1,0 +1,30 @@
+.home-header {
+    text-align: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+  }
+  
+  .items {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .menu a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
