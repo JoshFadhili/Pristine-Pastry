@@ -35,8 +35,8 @@ export async function saveUserToDB(user:{
 }){
   try {
     const newUser = await databases.createDocument(
-      import.meta.env.VITE_APPWRITE_DATABASES_ID,
-      import.meta.env.VITE_APPWRITE_USER_COLLECTIONS_ID,
+      '673f358f0020553b4468',
+      '673f361b0034e672526e',
       ID.unique(),
       user
     )
