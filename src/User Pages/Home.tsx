@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 import { useCart } from './CartContext';
+import Header from "../Components/Header";
 
 
 const pastries = [
@@ -36,6 +37,7 @@ const Home = () => {
     <div className="home">
       <header className="home-header">
         <h1>Welcome to the Pastry Shop!</h1>
+        <Header />
         <div className="menu">
           <Link to="/account-info">Account Info</Link>
           <Link to="/track-orders">Track Orders</Link>

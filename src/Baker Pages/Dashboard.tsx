@@ -1,6 +1,8 @@
 
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
+import Header from "../Components/Header";
+import OrderList from "./OrderList";
 
 
 const Dashboard = () => {
@@ -10,12 +12,8 @@ const Dashboard = () => {
         <h1>Welcome, Baker!</h1>
       </header>
       <div className="dashboard-content">
-        <div className="manage-section">
-          <h2>Manage</h2>
-          <Link to="/orders" className="btn">Orders</Link>
-          <Link to="/inventory" className="btn">Inventory</Link>
-        </div>
-        <div className="menu-section">
+        <OrderList />
+        {/* <div className="menu-section">
           <h2>Menu</h2>
           <div className="dropdown">
             <button className="dropdown-btn">Menu</button>
@@ -26,12 +24,10 @@ const Dashboard = () => {
               <Link to="/customer-interaction">Customer Interaction</Link>
             </div>
           </div>
-        </div>
+        </div> */}
         <br>
       </br>
-      <button className="nav-button">
-        <Link to="/NavigatePage" >Navigation Page </Link>
-        </button>
+      <Header />
       </div>
     </div>
   );

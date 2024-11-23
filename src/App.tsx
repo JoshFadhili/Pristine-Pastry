@@ -2,12 +2,13 @@ import './App.css'
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from './User Pages/CartContext'; // Import the provider
-
-import NavigationPage from "./NavigationPage";
+import HomePage from './HomePage';
+import SignUp from './/SignUp';
+import SignIn from './SignIn';
 
 //Bakers Side Below
 import Dashboard from "./Baker Pages/Dashboard";
-import Orders from "./Baker Pages/Orders";
+import Orders from "./Baker Pages/OrderList";
 import Inventory from "./Baker Pages/Inventory";
 import AccountInfo from "./Baker Pages/AccountInfo";
 import Finance from "./Baker Pages/Finance";
@@ -24,6 +25,9 @@ import ChocolateCakeDetails from "./User Pages/ChocolateCakeDetails";
 import VanillaPastryDetails from "./User Pages/VanillaPastryDetails";
 import StrawberryTartDetails from "./User Pages/StrawberryTartDetails";
 import CartPage from './User Pages/CartPage';
+import { AuthProvider } from './lib/AuthContext';
+import PrivateRoutes from './lib/PrivateRoutes';
+
 
 
 
@@ -31,10 +35,18 @@ function App() {
   // put if else and return how it looks. If its Baker side return; 
   return (
     <CartProvider>
+    <AuthProvider>
     <Router>
       <Routes>
-        <Route index element={<NavigationPage />}/>
-        <Route path="/NavigatePage" element={<NavigationPage />} />
+        <Route index element={<HomePage />}/>
+        <Route path="/" element={<HomePage />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/user" element={<Home />} />
+        </Route>
+
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+        
         //Bakers Side Below
         <Route path="/baker" element={<Dashboard />} />
         <Route path="/orders" element={<Orders />} />
@@ -45,7 +57,6 @@ function App() {
         <Route path="/customer-interaction" element={<CustomerInteraction />} />
 
         //Customers Side Below
-        <Route path="/user" element={<Home />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/account-infoC" element={<AccountInfoC />} />
         <Route path="/track-orders" element={<TrackOrders />} />
@@ -56,6 +67,7 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
       </Routes>
     </Router>
+    </AuthProvider>
     </CartProvider>
   );
 }

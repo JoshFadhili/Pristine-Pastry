@@ -8,7 +8,8 @@ export type IUser = {
 export type INewUser = {
     email: string;
     username: string;
-    masterPassword: string;
+    password: string;
+    contact: string;
 };
 export interface CardProps{
     $id: string
@@ -19,4 +20,10 @@ export interface AddUser {
     $id: string
     username: string,
     email:string,
+}
+export interface OrderProps{
+  $id: string
+  userId: string,
+  name: string,
+  price: number,
 }

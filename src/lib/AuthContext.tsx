@@ -1,8 +1,8 @@
 import {useContext, useState, useEffect, createContext} from "react"
 import { account, databases } from "./appwrite/config";
 import { ID } from "./appwrite/config";
-import { INewUser, IUser } from "@/types";
 import { createUserAccount } from "./appwrite/api";
+import { INewUser } from "./types";
 const AuthContext = createContext<{
   user: any;
   loading: boolean;
@@ -35,7 +35,7 @@ export const AuthProvider = ({children}:{children: React.ReactNode})=>{
       }
       let response =  await account.createEmailPasswordSession(
         userInfo.email,
-        userInfo.masterPassword
+        userInfo.password
       )
       let accountDetails = await account.get()
       setUser(accountDetails)
@@ -55,16 +55,18 @@ export const AuthProvider = ({children}:{children: React.ReactNode})=>{
       const newAccount = await account.create(
         ID.unique(),
         user.email,
-        user.masterPassword,
-        user.username
+        user.password,
+        user.username,
       )
-      await account.createEmailPasswordSession(user.email, user.masterPassword)
+      await account.createEmailPasswordSession(user.email, user.password)
       let accountDetails = await account.get()
       if(newAccount){
         try {
           const newUser = await saveUserToDB({
             username: user.username,
             email: user.email,
+            contact : user.contact,
+            id:newAccount.$id
           })
           setUser(accountDetails)
           setLoading(false)
@@ -83,13 +85,15 @@ export const AuthProvider = ({children}:{children: React.ReactNode})=>{
       return null
     }
     async function saveUserToDB(user:{
+      id: string,
       username: string,
       email: string,
+      contact: string,
     }){
       try {
         const newUser = await databases.createDocument(
-          import.meta.env.VITE_APPWRITE_DATABASES_ID,
-          import.meta.env.VITE_APPWRITE_USER_COLLECTIONS_ID,
+          '673f358f0020553b4468', //Databse ID
+          '673f361b0034e672526e', //user collections ID
           ID.unique(),
           user
         )
