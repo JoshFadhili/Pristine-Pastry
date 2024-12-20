@@ -15,7 +15,7 @@ const VanillaPastryDetails = () => {
         Each bite melts in your mouth, complemented by a smooth vanilla buttercream frosting. 
         Perfect for tea-time treats, light celebrations, or a sweet indulgence any day!
     `,
-    image: "/images/vanilla-pastry-large.jpg",
+    image: "https://cdn.uengage.io/uploads/7175/image-479868-1715192346.jpeg",
   };
 
   return (
@@ -45,7 +45,7 @@ const VanillaPastryDetails = () => {
         <Link to="/user">Back to Home</Link>
       </div>
       <div className="details-image">
-        <img src="/images/vanilla-pastry-large.jpg" alt="Vanilla Pastry" />
+        <img src="https://cdn.uengage.io/uploads/7175/image-479868-1715192346.jpeg" alt="Vanilla Pastry" />
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const StrawberryTartDetails = () => {
         Topped generously with fresh, juicy strawberries and a light glaze, it’s a perfect combination of tart and sweet. 
         A refreshing dessert for any occasion!
     `,
-    image: "/images/strawberry-tart-large.jpg",
+    image: "https://static.toiimg.com/thumb/55435839.cms?width=1200&height=900",
   };
 
   return (
@@ -45,7 +45,7 @@ const StrawberryTartDetails = () => {
         <Link to="/user">Back to Home</Link>
       </div>
       <div className="details-image">
-        <img src="/images/strawberry-tart-large.jpg" alt="Strawberry Tart" />
+        <img src="https://static.toiimg.com/thumb/55435839.cms?width=1200&height=900" alt="Strawberry Tart" />
       </div>
     </div>
   );

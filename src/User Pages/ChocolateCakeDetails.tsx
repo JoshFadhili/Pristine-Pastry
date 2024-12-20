@@ -15,7 +15,7 @@ const ChocolateCakeDetails = () => {
           and finished with a luxurious ganache. Ideal for birthdays, anniversaries, or simply as a sweet indulgence. 
           Served with optional chocolate shavings or a scoop of vanilla ice cream for the ultimate dessert experience.
     `,
-    image: '/images/chocolate-cake-large.jpg',
+    image: "https://inbloombakery.com/wp-content/uploads/2021/05/Chocolate-Berry-Cake-2-1.jpg",
   };
 
   return (
@@ -45,7 +45,7 @@ const ChocolateCakeDetails = () => {
         <Link to="/user">Back to Home</Link>
       </div>
       <div className="details-image">
-        <img src="/images/chocolate-cake-large.jpg" alt="Chocolate Cake" />
+        <img src="https://inbloombakery.com/wp-content/uploads/2021/05/Chocolate-Berry-Cake-2-1.jpg" alt="Chocolate Cake" />
       </div>
     </div>
   );
